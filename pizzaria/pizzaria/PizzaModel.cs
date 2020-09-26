@@ -14,8 +14,7 @@ namespace pizzaria
         internal void adicionarPizza(Pizza pizza)
         {
             //definição da string de conexão
-            //SqlConnection conn = new SqlConnection(@"Server=PICHAU;Database=pizzaria;User Id=gustavo;Password=43omfdip;");
-            SqlConnection conn = new SqlConnection(@"Server = pizzaria.czl3yqvvsbdz.sa-east-1.rds.amazonaws.com,1433; Database = pizzaria; User Id=admin;Password=43omfdip;");
+            SqlConnection conn = new SqlConnection(@"");
             
             //definição do comando sql
             string sql = "INSERT INTO pedido(nome, endereco, telefone, pedido, observacao, preco, data) VALUES(@nome, @endereco, @telefone, @pedido, @observacao, @preco, @data)";
@@ -54,7 +53,7 @@ namespace pizzaria
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(@"Server = pizzaria.czl3yqvvsbdz.sa-east-1.rds.amazonaws.com,1433; Database = pizzaria; User Id=admin;Password=43omfdip;"))
+                using (SqlConnection con = new SqlConnection(@""))
                 {
                     con.Open();
                     using (SqlCommand command = new SqlCommand("DELETE FROM pedidoEntregue where id=@id", con))
@@ -73,7 +72,7 @@ namespace pizzaria
 
         internal DataTable selectTodosEntregues()
         {
-            string conn = @"Server = pizzaria.czl3yqvvsbdz.sa-east-1.rds.amazonaws.com,1433; Database = pizzaria; User Id=admin;Password=43omfdip;";
+            string conn = @"";
             using (SqlConnection sqlCon = new SqlConnection(conn))
             {
                 sqlCon.Open();
@@ -89,7 +88,7 @@ namespace pizzaria
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(@"Server = pizzaria.czl3yqvvsbdz.sa-east-1.rds.amazonaws.com,1433; Database = pizzaria; User Id=admin;Password=43omfdip;"))
+                using (SqlConnection con = new SqlConnection(@""))
                 {
                     con.Open();
                     using (SqlCommand command = new SqlCommand("DELETE FROM pedido where id=@id", con))
@@ -110,7 +109,7 @@ namespace pizzaria
         internal void adicionarPizzaEntregue(Pizza pizza)
         {
             
-            SqlConnection conn = new SqlConnection(@"Server = pizzaria.czl3yqvvsbdz.sa-east-1.rds.amazonaws.com,1433; Database = pizzaria; User Id=admin;Password=43omfdip;");
+            SqlConnection conn = new SqlConnection(@"");
             string sql = "INSERT INTO pedidoEntregue (nome, endereco, telefone, pedido, observacao, preco, data) VALUES(@nome, @endereco, @telefone, @pedido, @observacao, @preco, @data)";
 
             try
@@ -147,7 +146,7 @@ namespace pizzaria
         internal Pizza SelectUm(int index)
         {
             Pizza pizza = new Pizza();
-            SqlConnection conn = new SqlConnection(@"Server = pizzaria.czl3yqvvsbdz.sa-east-1.rds.amazonaws.com,1433; Database = pizzaria; User Id=admin;Password=43omfdip;");//@"Server = PICHAU; Database = pizzaria; Trusted_Connection = True;"
+            SqlConnection conn = new SqlConnection(@"");//@"Server = PICHAU; Database = pizzaria; Trusted_Connection = True;"
             conn.Open();
             SqlCommand command = new SqlCommand("Select * from pedido where id=@id", conn);            
             command.Parameters.AddWithValue("@id", index);
@@ -170,8 +169,7 @@ namespace pizzaria
         {
             
             //definição da string de conexão
-            //SqlConnection conn = new SqlConnection(@"Server=PICHAU;Database=pizzaria;User Id=gustavo;Password=43omfdip;");
-            SqlConnection conn = new SqlConnection(@"Server = pizzaria.czl3yqvvsbdz.sa-east-1.rds.amazonaws.com,1433; Database = pizzaria; User Id=admin;Password=43omfdip;");
+            SqlConnection conn = new SqlConnection(@"");
 
             //definição do comando sql
             string sql = "UPDATE pedido(entregue) VALUES(@entregue) WHERE id = (@id)";
@@ -203,7 +201,7 @@ namespace pizzaria
 
         internal DataTable selectTodos()
         {
-            string conn = @"Server = pizzaria.czl3yqvvsbdz.sa-east-1.rds.amazonaws.com,1433; Database = pizzaria; User Id=admin;Password=43omfdip;";
+            string conn = @"";
             using (SqlConnection sqlCon = new SqlConnection(conn))
             {
                 sqlCon.Open();
