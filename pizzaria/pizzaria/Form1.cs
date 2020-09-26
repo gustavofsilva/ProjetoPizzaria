@@ -20,6 +20,7 @@ namespace pizzaria
 
         private void buttonAddPedido_Click(object sender, EventArgs e)
         {
+            //addpedido
             Form2 form2 = new Form2();
             form2.Show();
             
